@@ -5,46 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sakai</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ays4jnd.css">
+    <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MotionPathPlugin.min.js" defer></script>
-    <script src="index.js" defer></script>
+    
 </head>
 <body>
     <header>
-        <div class="container">
-            <p class="brand">SAKAI</p>
-            <div class="nav_progress"></div>
+        <div class="nav_container">
+            <img src="images/nav.png" alt="Progress bar with Sakai brand logo" class="nav_placeholder">
+            <div class="nav_solid">
+                <p class="brand">SAKAI</p>
+                <div class="nav_progress"></div>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#origin">ORIGINS</a></li>
-                    <li><a href="#value">OUR VALUES</a></li>
-                    <li><a href="#journey">OUR JOURNEY</a></li>
-                    <li><a href="#path">PATH AHEAD</a></li>
+                    <div>
+                        <li><a href="#origin">ORIGINS</a></li>
+                        <li><a href="#value">OUR VALUES</a></li>
+                    </div>
+                    <div>
+                        <li><a href="#journey">OUR JOURNEY</a></li>
+                        <li><a href="#path">PATH AHEAD</a></li>
+                    </div>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <section id="hero">
-            <p>Hero Image Here</p>
-        </section>
+        <section id="hero"> </section>
         <section id="statement">
-            <p>We believe that a business ventures further by giving back.</p>
+            <div class="statement_line"></div>
+            <h1>We believe <br>
+                that a business ventures further <br>
+                by giving back.</h1>
+            <img src="images/location-right.png" alt="location icon with shadow to the right" id="location1">
         </section>
         <section id="origin">
-            <p>The Origin and Significance of Sakai</p>
+                <h2>The Origin and <br>
+                    Significance of Sakai</h2>
+                <div id="origin_river">
+                    <div id="river_before"></div>
+                    <img src="images/path.png" alt="River illustration from Origin section to bottom of page" id="river">
+                </div>
+                <div class="para" id="para_1">
+                    <h3>The Sakai brand narrative 
+                        is deeply rooted in the very meaning of this Malay word.</h3>
+                    <br>
+                    <p class="para_text">
+                        The Sakai brand narrative is deeply rooted in the very meaning of this Malay word. It alludes to being a member of a tribe, and the tribal values of unity, loyalty and kinship together form the cornerstone of the brand philosophy.
+                        <br><br>
+                        <span style="display: none;">
+                            The foundation of the Sakai philosophy is constituted on a singular belief - indeed a conviction - that the core objective of business is not merely to create short-term profit for shareholders, but to affect long-term value creation for all, including society at large, through the upliftment of the communities around us.
+                        </span>
+                    </p>
+                    <button class="para_read" id="read_1" onclick="readMore(read_1)">READ MORE</button>
+                </div>
         </section>
         <section id="value">
             <img src="images/boat.png" alt="boat" id="boat">
-            <p>The Sakai Value</p>
+            <h2>The Sakai Value</h2>
         </section>
         <section id="journey">
-            <p>The Sakai Journey</p>
+            <h2>The Sakai Journey</h2>
+            <img src="images/footstep.png" alt="footstep" id="footstep">
         </section>
         <section id="path">
-            <p>The Path Ahead</p>
+            <img src="images/airplane.png" alt="airplane" id="airplane">
+            <img src="images/airplane-shadow.png" alt="airplane shadow" id="airplane_shadow">
+            <h2>The Path Ahead</h2>
         </section>
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MotionPathPlugin.min.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

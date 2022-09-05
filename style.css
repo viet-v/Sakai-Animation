@@ -1,5 +1,15 @@
+@font-face {
+    font-family: Baskerville;
+    src: url('fonts/Baskerville.ttf');
+}
+@font-face {
+    font-family: Didot;
+    src: url('fonts/Didot.ttf');
+}
+
 :root {
-    --progress: 0px;
+    --progress: 0px; /* navigation tracking */
+    --flow: 0%;     /* river flow */
 }
 
 * {
@@ -13,21 +23,42 @@
 }
 
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #2A534C;
 }
 
+.container {
+    max-width: 1516px;
+}
+
+h1, h2 {
+    font-family: Didot, serif;
+    font-weight: normal;
+}
+
+.f-prox-reg {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.f-prox-med {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* ------------------------ Navigation bar ---------------------- */
 header {
     position: fixed;
     padding-top: 20px;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: transparent;
     z-index: 10;
 }
 
-.container {
+.nav_container {
     display: flex;
     flex-direction: column;
     width: 70vw;
@@ -35,19 +66,25 @@ header {
 }
 
 .brand {
+    font-family: Baskerville;
     text-align: center;
     display: block;
     width: max-content;
     margin: 0 auto;
     padding: 0 0.5rem;
-    font-size: 2rem;
-    background-color: antiquewhite;
+    font-size: 61px;
+    color: #D99C4D;
+    background: #F8F5EC;
+}
+
+.nav_solid {
+    display: none;
 }
 
 .nav_progress {
-    background-color: black;
-    height: 2px;
-    transform: translateY(-15px);
+    background-color: #2A534C;
+    height: 1px;
+    transform: translateY(-40px);
     z-index: -1;
     position: relative;
 }
@@ -55,28 +92,42 @@ header {
     content: '';
     width: 40px;
     height: 10px;
-    background-color: black;
+    background-color: #2A534C;
     position: absolute;
     top: -150%;
     left: var(--progress);
     transition: .7s ease-in-out;
 }
 
+nav {
+    transform: translateY(-20px);
+}
+
 nav ul {
     display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+nav ul div {
+    display: flex;
+    width: 30%;
     justify-content: space-between;
 }
 
 nav ul li {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 500;
+    font-size: 21px;
     list-style: none;
 }
 
 nav ul li a {
-    color: black;
+    color: #2A534C;
     text-decoration: none;
 }
 
+/* ------------------------ Main general ---------------------- */
 main {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
@@ -91,33 +142,305 @@ main > section {
     justify-content: center;
     align-items: center;
     scroll-snap-align: start;
+    background-color: #F8F5EC;
 }
 
+/* ------------------------ Hero image ---------------------- */
 #hero {
-    background-color: antiquewhite;
-}
-#statement {
-    background-color: beige;
-}
-#origin {
-    background-color: rgb(233, 233, 177);
-}
-#value {
-    background-color: rgb(231, 231, 124);
-    height: 120vh;
-}
-#journey {
-    background-color: rgb(192, 192, 162);
-}
-#path {
-    background-color: rgb(243, 243, 74);
+    background-image: url('images/header.png');
+    background-position: center;
+    background-size: cover;
 }
 
+/* ------------------------ Statement section ---------------------- */
+#statement {
+    flex-direction: column;
+    position: relative;
+}
+
+#statement h1 {
+    font-size: 65px;
+    text-align: center;
+    padding: 50px 100px;
+    background-color: #F8F5EC;
+    z-index: 1;
+    position: absolute;
+    top: 30vh;
+}
+
+.statement_line {
+    height: 0;
+    width: 2px;
+    background-color: #2A534C;
+    position: absolute;
+    top: 15vh;
+}
+.increaseLength {
+    animation: increaseLength 4s forwards;
+}
+
+#location1 {
+    width: 100%;
+    max-width: 100px;
+    position: absolute;
+    top: 90vh;
+    opacity: 0;
+    transform-origin: bottom;
+    left: 47.5vw;
+}
+.locationScale {
+    animation: scale 1s 3.5s forwards;
+}
+
+/* ------------------------ Origin section ---------------------- */
+#origin {
+    align-items: flex-start;
+    position: relative;
+}
+#origin h2 {
+    font-size: 55px;
+    text-align: center;
+    margin-top: 130px;
+    position: relative;
+}
+#origin h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F8F5EC;
+    box-shadow: 0px -10px 50px #F8F5EC;
+    animation: reveal 1s 2s forwards;
+}
+
+#origin_river {
+    position: absolute;
+    top: 30vh;
+}
+#river {
+    width: 100%;
+    max-width: 712px;
+}
+#river_before {
+    position: absolute;
+    top: var(--flow);
+    bottom: 0;
+    width: 100%;
+    background-color: #F8F5EC;
+    box-shadow: 0px -10px 50px #F8F5EC;
+    transition: top 5s ease-in;
+}
+
+.para {
+    position: absolute;
+    top: 40vh;
+    left: 60vw;
+    right: 8vw;
+    
+}
+.para h3 {
+    font-family: Didot, serif;
+    font-weight: normal;
+    font-size: 45px;
+    opacity: 0;
+}
+.para_text {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+    opacity: 0;
+}
+.para_text span {
+    position: relative;
+    display: block;
+}
+.para_text span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F8F5EC;
+    box-shadow: 0px -10px 50px #F8F5EC;
+    animation: reveal 1s forwards;
+}
+
+.para_read {
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    border: none;
+    background-color:#F8F5EC;
+    color:#2A534C;
+    cursor: pointer;
+    opacity: 0;
+}
+.para_read::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #2A534C;
+    transition: width 1s ease;
+    display: block;
+}
+.para_read:hover::after {
+    width: 100%;
+}
+
+.fadeUp_2s5 {
+    transform: translateY(20px);
+    animation: fadeUp 1s 2.5s forwards;
+}
+.fadeUp_3s {
+    transform: translateY(20px);
+    animation: fadeUp 1s 3s forwards;
+}
+.fadeOutIn {
+    animation: fadeOutIn 2.5s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutIn {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ------------------------ Value section ---------------------- */
 #boat {
     width: 100%;
     max-width: 200px;
     transform: translateY(-400px);
     display: none;
+}
+
+/* ------------------------ Journey section ---------------------- */
+#footstep {
+    width: 100%;
+    max-width: 50px;
+    display: none;
+    opacity: 1;
+    transform: translateY(-200px);
+    animation: blink 1s 15 forwards;
+}
+
+/* ------------------------ Path section ---------------------- */
+#airplane {
+    width: 100%;
+    max-width: 50px;
+    transform: translate(100px, -100px) rotate(-10deg);
+    z-index: 1;
+    opacity: 0;
+}
+.fly {
+    animation: fly 8s 1s forwards;
+}
+
+#airplane_shadow {
+    width: 100%;
+    max-width: 50px;
+    transform: translate(70px, -100px) rotate(-10deg);
+    opacity: 0;
+}
+.flyShadow {
+    animation: flyShadow 8s 1.8s forwards;
+}
+
+@keyframes reveal {
+    to {
+        top: 100%;
+    }
+}
+
+
+@keyframes scale {
+    10% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    30%{
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    35%{
+        opacity: 1;
+        transform: scale(1) rotate(-5deg);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes blink {
+    20% {
+        opacity: 1;
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes increaseLength {
+    to {
+        height: 70vh;
+    }
+}
+
+
+
+@keyframes fly {
+    2% {
+        opacity: 1;
+        transform: translate(100px, -100px) rotate(-10deg) scale(0.5);
+    }
+    5% {
+        opacity: 1;
+        transform: translate(100px, -100px) rotate(-10deg) scale(1);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(100px, -100px) rotate(-10deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(100px, 110vh) rotate(0deg) scale(3);
+    }
+}
+@keyframes flyShadow {
+    to {
+        transform: translate(60px, 110vh) rotate(0deg);
+        max-width: 80px;
+        opacity: 0.5;
+    }
 }
 
 
