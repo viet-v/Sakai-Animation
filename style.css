@@ -202,6 +202,7 @@ main > section {
     text-align: center;
     margin-top: 130px;
     position: relative;
+    display: none;
 }
 #origin h2::before {
     content: '';
@@ -212,7 +213,7 @@ main > section {
     bottom: 0;
     background-color: #F8F5EC;
     box-shadow: 0px -10px 50px #F8F5EC;
-    animation: reveal 1s 2s forwards;
+    animation: reveal 1s forwards;
 }
 
 #origin_river {
@@ -233,12 +234,11 @@ main > section {
     transition: top 5s ease-in;
 }
 
-.para {
+#para_1 {
     position: absolute;
     top: 40vh;
     left: 60vw;
     right: 8vw;
-    
 }
 .para h3 {
     font-family: Didot, serif;
@@ -275,7 +275,7 @@ main > section {
     font-style: normal;
     font-size: 21px;
     border: none;
-    background-color:#F8F5EC;
+    background-color:transparent;
     color:#2A534C;
     cursor: pointer;
     opacity: 0;
@@ -292,6 +292,81 @@ main > section {
     width: 100%;
 }
 
+#origin_bush_left {
+    position: absolute;
+    width: 100%;
+    max-width: 199px;
+    top: 30vh;
+    left:35vw;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+#origin_bush_right {
+    position: absolute;
+    width: 100%;
+    max-width: 199px;
+    top: 30vh;
+    right:35vw;
+    opacity: 0;
+    transition: opacity 1s 1.5s ease-in;
+}
+#origin_tree {
+    position: absolute;
+    width: 100%;
+    max-width: 172px;
+    top: 40vh;
+    left:20vw;
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+}
+#origin_house_big {
+    position: absolute;
+    width: 100%;
+    max-width: 86px;
+    top: 42vh;
+    left:30vw;
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 1s 1s ease-in;
+}
+#origin_house_small {
+    position: absolute;
+    width: 100%;
+    max-width: 52px;
+    top: 52vh;
+    left:30vw;
+    opacity: 0;
+    transition: opacity 1s 1.5s ease-in;
+}
+#origin_house_small_2 {
+    position: absolute;
+    width: 100%;
+    max-width: 52px;
+    top: 75vh;
+    left:35vw;
+    opacity: 0;
+    transition: opacity 1s 2s ease-in;
+}
+#origin_plants {
+    position: absolute;
+    width: 100%;
+    max-width: 140px;
+    top: 80vh;
+    left:35vw;
+    opacity: 0;
+    transition: opacity 1s 2.5s ease-in;
+}
+#origin_settlement {
+    position: absolute;
+    width: 100%;
+    max-width: 200px;
+    top: 40vh;
+    right:37vw;
+    opacity: 0;
+    transition: opacity 2s 2.5s ease-in;
+}
+
+
 .fadeUp_2s5 {
     transform: translateY(20px);
     animation: fadeUp 1s 2.5s forwards;
@@ -303,6 +378,9 @@ main > section {
 .fadeOutIn {
     animation: fadeOutIn 2.5s forwards;
 }
+.fadeIn {
+    opacity: 1 !important;
+}
 
 @keyframes fadeUp {
     to {
@@ -310,7 +388,6 @@ main > section {
         opacity: 1;
     }
 }
-
 @keyframes fadeOutIn {
     0% {
         opacity: 0;
@@ -324,11 +401,71 @@ main > section {
 }
 
 /* ------------------------ Value section ---------------------- */
+
+#value h2 {
+    transform: translate(900px, -200px);
+    font-size: 55px;
+    position: relative;
+    display: none;
+}
+#value h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F8F5EC;
+    box-shadow: 0px -10px 50px #F8F5EC;
+    animation: reveal 1s forwards;
+}
+
+#value_location {
+    width: 100%;
+    max-width: 112px;
+    transform-origin: bottom;
+    opacity: 0;
+    position: absolute;
+    top: -200px;
+    right: -550px;
+}
+
 #boat {
     width: 100%;
     max-width: 200px;
-    transform: translateY(-400px);
-    display: none;
+    transform: translate(-1000px, -400px);
+    opacity: 0;
+}
+
+
+#para_2 {
+    width: 25%;
+    transform: translateX(-200px);
+}
+#para_2 h3 {
+    position: relative;
+}
+#para_2 h3::before {
+    content: '“';
+    position: absolute;
+    font-size: 150px;
+    left: -100px;
+    top: -20px;
+}
+
+#value_plant_left {
+    width: 100%;
+    max-width: 133px;
+    transform: translate(-180px, 300px);
+    opacity: 0;
+    transition: opacity 1s 2s ease-in;
+}
+#value_plant_right {
+    width: 100%;
+    max-width: 106px;
+    transform: translate(20px, 200px);
+    opacity: 0;
+    transition: opacity 1s 2.5s ease-in;
 }
 
 /* ------------------------ Journey section ---------------------- */
