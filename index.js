@@ -11,13 +11,16 @@ const river = document.getElementById('river');
 const para_1 = document.getElementById('para_1');
 
 const value = document.getElementById('value');
+const boat = document.getElementById('boat');
 const valueImg = document.querySelectorAll('.value_img');
 const para_2 = document.getElementById('para_2');
 
 const journey = document.getElementById('journey');
-const path = document.getElementById('path');
-const boat = document.getElementById('boat');
 const footstep = document.getElementById('footstep');
+const journeyImg = document.querySelectorAll('.journey_img');
+const para_3 = document.getElementById('para_3');
+
+const path = document.getElementById('path');
 const statementText = document.querySelector('#statement h2');
 const statementLine = document.querySelector('.statement_line');
 const airplane = document.getElementById('airplane');
@@ -72,7 +75,7 @@ main.addEventListener('scroll', () => {
     // origin.offsetTop = 939
     else if (origin.offsetTop - 1 <= main.scrollTop && main.scrollTop <= origin.offsetTop + 1) {
         root.style.setProperty('--progress', '1.5%');
-        root.style.setProperty('--flow', '18%');
+        root.style.setProperty('--flow', '25%');
 
         // origin ------------------------------
         origin.querySelector('h2').style.display = 'block';
@@ -84,7 +87,7 @@ main.addEventListener('scroll', () => {
         })
 
         boat.style.opacity = '0';
-        footstep.style.display = 'none';
+        // footstep.style.display = 'none';
         statementLine.classList.remove('increaseLength')
         airplane.classList.remove('fly');
         airplaneShadow.classList.remove('flyShadow');
@@ -94,7 +97,7 @@ main.addEventListener('scroll', () => {
     // value.offsetTop = 1409
     else if (value.offsetTop - 1 <= main.scrollTop && main.scrollTop <= value.offsetTop + 1) {
         root.style.setProperty('--progress', '24%');
-        root.style.setProperty('--flow', '42%');
+        root.style.setProperty('--flow', '46%');
         
         // value ------------------------------
         value.querySelector('h2').style.display = 'block';
@@ -108,7 +111,7 @@ main.addEventListener('scroll', () => {
 
         // boat on shows up and moves when scroll to VALUE section
         boat.style.opacity = '1';
-        footstep.style.display = 'none';
+        // footstep.style.display = 'none';
         statementLine.classList.remove('increaseLength')
         airplane.classList.remove('fly');
         airplaneShadow.classList.remove('flyShadow');
@@ -129,10 +132,22 @@ main.addEventListener('scroll', () => {
     // journey.offsetTop = 1878
     else if (journey.offsetTop - 1 <= main.scrollTop && main.scrollTop <= journey.offsetTop + 1) {
         root.style.setProperty('--progress', '73%');
-        root.style.setProperty('--flow', '65%');
+        root.style.setProperty('--flow', '72%');
 
         boat.style.opacity = '0';
-        footstep.style.display = 'block';
+
+        // journey ------------------------------
+        journey.querySelector('h2').style.display = 'block';
+        footstep.style.opacity = '1';
+        
+        para_3.querySelector('h3').classList.add('fadeUp_2s5');
+        para_3.querySelector('p').classList.add('fadeUp_3s');
+        para_3.querySelector('button').classList.add('fadeUp_3s');
+        journey.querySelector('#journey_location').classList.add('locationScale');
+        journeyImg.forEach(img => {
+            img.classList.add('fadeIn');
+        })
+
         statementLine.classList.remove('increaseLength')
         airplane.classList.remove('fly');
         airplaneShadow.classList.remove('flyShadow');
@@ -143,20 +158,27 @@ main.addEventListener('scroll', () => {
                 duration: 10,
                 ease: "slow(0.1, 0.4, false)",
                 motionPath:{
-                    path:'M -70 -143 C -69 -132.6667 -68 -122.3333 -67 -112 C -63.6667 -100 -60.3333 -88 -57 -76 C -52.3333 -64.6667 -47.6667 -53.3333 -43 -42 C -38.3333 -33.6667 -33.6667 -25.3333 -29 -17 C -22.6667 -6 -16.3333 5 -10 16 C -2 30.3333 6 44.6667 14 59 C 19.3333 69 24.6667 79 30 89 C 32.6667 100.6667 35.3333 112.3333 38 124 C 38.3333 134.6667 38.6667 145.3333 39 156 C 36.6667 167 34.3333 178 32 189 C 26.6667 199 21.3333 209 16 219 C 7.6667 234.6667 -0.6667 250.3333 -9 266 C -15.6667 282 -22.3333 298 -29 314 C -33.6667 325.6667 -38.3333 337.3333 -43 349',
-                    autoRotate: true
+                    path:'M 530 158.4 Q 510.2 189.6 490.4 220.8 Q 481.4 247.8 472.4 274.8 Q 470 306.6 467.6 338.4 Q 468.8 370.8 470 403.2 Q 475.4 437.4 480.8 471.6 Q 494 504.6 507.2 537.6 Q 518.6 576 530 614.4 Q 535.4 651.6 540.8 688.8 Q 551 726 561.2 763.2',
+                    autoRotate: true,
                 },
-                
+                delay: 2,
             })
+            // function blinking() {
+            //     var footstep = new TimelineMax({repeat: -1});
+                
+            //     footstep.to(footstep, 0.5, {alpha: 0})
+            //       .to(footstep, 0.5, {alpha: 1});
+            //     }
+            // blinking();
     }
 
     // path.offsetTop = 2348
     else if (path.offsetTop - 1 <= main.scrollTop && main.scrollTop <= path.offsetTop + 1) {
         root.style.setProperty('--progress', '94%');
-        root.style.setProperty('--flow', '95%');
+        root.style.setProperty('--flow', '98%');
 
         boat.style.opacity = '0';
-        footstep.style.display = 'none';
+        // footstep.style.display = 'none';
         statementLine.classList.remove('increaseLength')
         airplane.classList.add('fly');
         airplaneShadow.classList.add('flyShadow');
