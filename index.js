@@ -8,6 +8,7 @@ const statement = document.getElementById('statement');
 const origin = document.getElementById('origin');
 const originImg = document.querySelectorAll('.origin_img');
 const river = document.getElementById('river');
+const riverBefore = document.getElementById('river_before');
 const para_1 = document.getElementById('para_1');
 
 const value = document.getElementById('value');
@@ -21,6 +22,10 @@ const journeyImg = document.querySelectorAll('.journey_img');
 const para_3 = document.getElementById('para_3');
 
 const path = document.getElementById('path');
+const para_4 = document.getElementById('para_4');
+const para_5 = document.getElementById('para_5');
+const pathImg = document.querySelectorAll('.path_img');
+
 const statementText = document.querySelector('#statement h2');
 const statementLine = document.querySelector('.statement_line');
 const airplane = document.getElementById('airplane');
@@ -87,7 +92,7 @@ main.addEventListener('scroll', () => {
         })
 
         boat.style.opacity = '0';
-        // footstep.style.display = 'none';
+        footstep.style.display = 'none';
         statementLine.classList.remove('increaseLength')
         airplane.classList.remove('fly');
         airplaneShadow.classList.remove('flyShadow');
@@ -97,7 +102,7 @@ main.addEventListener('scroll', () => {
     // value.offsetTop = 1409
     else if (value.offsetTop - 1 <= main.scrollTop && main.scrollTop <= value.offsetTop + 1) {
         root.style.setProperty('--progress', '24%');
-        root.style.setProperty('--flow', '46%');
+        root.style.setProperty('--flow', '45%');
         
         // value ------------------------------
         value.querySelector('h2').style.display = 'block';
@@ -111,7 +116,7 @@ main.addEventListener('scroll', () => {
 
         // boat on shows up and moves when scroll to VALUE section
         boat.style.opacity = '1';
-        // footstep.style.display = 'none';
+        footstep.style.display = 'none';
         statementLine.classList.remove('increaseLength')
         airplane.classList.remove('fly');
         airplaneShadow.classList.remove('flyShadow');
@@ -132,13 +137,13 @@ main.addEventListener('scroll', () => {
     // journey.offsetTop = 1878
     else if (journey.offsetTop - 1 <= main.scrollTop && main.scrollTop <= journey.offsetTop + 1) {
         root.style.setProperty('--progress', '73%');
-        root.style.setProperty('--flow', '72%');
+        root.style.setProperty('--flow', '75%');
 
         boat.style.opacity = '0';
 
         // journey ------------------------------
         journey.querySelector('h2').style.display = 'block';
-        footstep.style.opacity = '1';
+        footstep.style.display = 'inline-block';
         
         para_3.querySelector('h3').classList.add('fadeUp_2s5');
         para_3.querySelector('p').classList.add('fadeUp_3s');
@@ -155,30 +160,36 @@ main.addEventListener('scroll', () => {
 
         gsap.to('#footstep', 
             {
-                duration: 10,
+                duration: 20,
                 ease: "slow(0.1, 0.4, false)",
                 motionPath:{
-                    path:'M 530 158.4 Q 510.2 189.6 490.4 220.8 Q 481.4 247.8 472.4 274.8 Q 470 306.6 467.6 338.4 Q 468.8 370.8 470 403.2 Q 475.4 437.4 480.8 471.6 Q 494 504.6 507.2 537.6 Q 518.6 576 530 614.4 Q 535.4 651.6 540.8 688.8 Q 551 726 561.2 763.2',
+                    path:'M 580 84 Q 572 112 564 140 Q 564 158.5 564 177 T 570 216 T 584 257 T 597 298 T 609 341 T 629 393 T 644 456 T 658 502',
                     autoRotate: true,
                 },
                 delay: 2,
             })
-            // function blinking() {
-            //     var footstep = new TimelineMax({repeat: -1});
-                
-            //     footstep.to(footstep, 0.5, {alpha: 0})
-            //       .to(footstep, 0.5, {alpha: 1});
-            //     }
-            // blinking();
+
     }
 
     // path.offsetTop = 2348
     else if (path.offsetTop - 1 <= main.scrollTop && main.scrollTop <= path.offsetTop + 1) {
         root.style.setProperty('--progress', '94%');
-        root.style.setProperty('--flow', '98%');
+        root.style.setProperty('--flow', '100%');
 
         boat.style.opacity = '0';
-        // footstep.style.display = 'none';
+        footstep.style.display = 'none';
+
+        path.querySelector('h2').style.display = 'block';
+        path.querySelector('#path_location').classList.add('locationScale');
+        para_4.querySelector('h3').classList.add('fadeUp_4s');
+        para_4.querySelector('p').classList.add('fadeUp_4s5');
+        para_5.querySelector('h3').classList.add('fadeUp_2s5');
+        para_5.querySelector('p').classList.add('fadeUp_3s');
+        pathImg.forEach(img => {
+            img.classList.add('fadeIn');
+        });
+        
+
         statementLine.classList.remove('increaseLength')
         airplane.classList.add('fly');
         airplaneShadow.classList.add('flyShadow');

@@ -198,7 +198,7 @@ main > section {
     position: relative;
 }
 #origin h2 {
-    font-size: 55px;
+    font-size: 60px;
     text-align: center;
     margin-top: 130px;
     position: relative;
@@ -375,6 +375,14 @@ main > section {
     transform: translateY(20px);
     animation: fadeUp 1s 3s forwards;
 }
+.fadeUp_4s {
+    transform: translateY(20px);
+    animation: fadeUp 1s 4s forwards;
+}
+.fadeUp_4s5 {
+    transform: translateY(20px);
+    animation: fadeUp 1s 4.5s forwards;
+}
 .fadeOutIn {
     animation: fadeOutIn 2.5s forwards;
 }
@@ -404,7 +412,7 @@ main > section {
 
 #value h2 {
     transform: translate(900px, -200px);
-    font-size: 55px;
+    font-size: 60px;
     position: relative;
     display: none;
 }
@@ -471,7 +479,7 @@ main > section {
 /* ------------------------ Journey section ---------------------- */
 #journey h2 {
     transform: translate(0, -200px);
-    font-size: 55px;
+    font-size: 60px;
     position: relative;
     display: none;
 }
@@ -500,9 +508,11 @@ main > section {
 #footstep {
     width: 100%;
     max-width: 80px;
-    transform: translate(400px, 100px) rotateZ(100deg);
-    opacity: 0;
+    transform: translate(500px, 100px) rotateZ(100deg);
     animation: blink 1s 15 forwards;
+    display: none;
+    position: absolute;
+    z-index: 5;
 }
 
 #compass {
@@ -522,8 +532,8 @@ main > section {
 }
 #journey_plant_left {
     width: 100%;
-    max-width: 106px;
-    transform: translate(-400px, 300px);
+    max-width: 180px;
+    transform: translate(-400px, 500px);
     transition: opacity 1s 2.5s ease-in;
     opacity: 0;
 }
@@ -534,33 +544,125 @@ main > section {
 }
 
 /* ------------------------ Path section ---------------------- */
+#path h2 {
+    transform: translate(325px, -200px);
+    font-size: 60px;
+    position: relative;
+    display: none;
+}
+#path h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #F8F5EC;
+    box-shadow: 0px -10px 50px #F8F5EC;
+    animation: reveal 1s forwards;
+}
+
+#path_location {
+    width: 100%;
+    max-width: 112px;
+    transform-origin: bottom;
+    opacity: 0;
+    position: absolute;
+    top: -200px;
+    right: 50px;
+}
+
+#para_4 {
+    width: 23%;
+    transform: translate(150px, 80px);
+}
+#para_4 h3 {
+    position: relative;
+}
+#para_4 h3::before {
+    content: '“';
+    position: absolute;
+    font-size: 150px;
+    left: -100px;
+    top: -20px;
+}
+
+#para_5 {
+    width: 25%;
+    transform: translate(20px, 20px);
+}
+
+#path_bush {
+    width: 100%;
+    max-width: 100px;
+    transform: translateX(200px);
+    transition: opacity 1s 1.5s ease-in;
+    opacity: 0;
+}
+#path_plants {
+    width: 100%;
+    max-width: 100px;
+    transform: translate(120px, 300px);
+    transition: opacity 1s 2s ease-in;
+    opacity: 0;
+}
+#path_bush_bt {
+    width: 100%;
+    max-width: 150px;
+    transform: translate(350px, 440px);
+    transition: opacity 1s 2.5s ease-in;
+    opacity: 0;
+}
+
 #airplane {
     width: 100%;
-    max-width: 50px;
-    transform: translate(100px, -100px) rotate(-10deg);
+    max-width: 120px;
+    transform: translate(100px, -100px) rotateZ(-20deg);
     z-index: 1;
     opacity: 0;
 }
 .fly {
-    animation: fly 8s 1s forwards;
+    animation: fly 8s 2s forwards;
 }
 
 #airplane_shadow {
     width: 100%;
-    max-width: 50px;
-    transform: translate(70px, -100px) rotate(-10deg);
+    max-width: 80px;
+    transform: translate(70px, -100px) rotateZ(-10deg);
     opacity: 0;
 }
 .flyShadow {
-    animation: flyShadow 8s 1.8s forwards;
+    animation: flyShadow 8s 2.8s forwards;
 }
+
+/* ------------------------ Footer ---------------------- */
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+footer p {
+    text-align: center;
+    font-family: proxima-nova, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 17px;
+}
+
+footer p a {
+    color: #2A534C;
+}
+
 
 @keyframes reveal {
     to {
         top: 100%;
     }
 }
-
 
 @keyframes scale {
     10% {
@@ -612,26 +714,35 @@ main > section {
 @keyframes fly {
     2% {
         opacity: 1;
-        transform: translate(100px, -100px) rotate(-10deg) scale(0.5);
+        transform: translate(100px, -100px) rotateZ(-10deg) scale(0.5);
     }
     5% {
         opacity: 1;
-        transform: translate(100px, -100px) rotate(-10deg) scale(1);
+        transform: translate(100px, -100px) rotateZ(-10deg) scale(1);
     }
     10% {
         opacity: 1;
-        transform: translate(100px, -100px) rotate(-10deg) scale(0.8);
+        transform: translate(100px, -100px) rotateZ(-10deg) scale(0.8);
     }
-    100% {
+    70%{
         opacity: 1;
-        transform: translate(100px, 110vh) rotate(0deg) scale(3);
+        transform: translate(100px, 110vh) rotateZ(-10deg) scale(4);
+    }
+    80% {
+        opacity: 0;
+        transform: translate(100px, 110vh) rotateZ(-10deg) scale(4);
+        display: none;
     }
 }
 @keyframes flyShadow {
-    to {
-        transform: translate(60px, 110vh) rotate(0deg);
-        max-width: 80px;
-        opacity: 0.5;
+    70% {
+        transform: translate(60px, 110vh) rotateZ(-10deg) scale(2);
+        max-width: 100px;
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+        display: none;
     }
 }
 
